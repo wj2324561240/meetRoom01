@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"> 
+<struts>
+	<package name="meet" extends="struts-default">
+		<action name="meet_*" class="meetAction" method="{1}">
+			<result name="findAllMeet" type="redirect">/meetList.jsp</result>
+			<result name="addMeet" type="redirect">/meet_findAllMeet.action</result>
+			<result name="deleteMeet" type="redirect">/meet_findAllMeet.action</result>
+			<result name="findByIdMeet" >/meet.jsp</result>
+			<result name="updateMeet" type="redirect">/meet_findAllMeet.action</result>
+			<result name="findByTJ" type="redirect">/meetList.jsp</result>
+		</action>
+	</package>
+</struts>

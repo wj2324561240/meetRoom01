@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"> 
+<struts>
+	<package name="group" extends="struts-default">
+		<action name="group_*" class="groupAction" method="{1}">
+			<result name="addGroup" type="redirect">/group_findListGroup.action</result>
+			<result name="findListGroup" type="redirect">/groupList.jsp</result>
+			<result name="deleteGroup" type="redirect">/group_findListGroup.action</result>
+			<result name="findByIdGroup" >/group.jsp</result>
+			<result name="updateGroup" type="redirect">/group_findListGroup.action</result>
+		</action>
+	</package>
+</struts>

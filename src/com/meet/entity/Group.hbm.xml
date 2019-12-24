@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	<class name="com.meet.entity.Group" table="group" catalog="meetroom" lazy="false">  
+		
+		<id name="groupid" type="java.lang.Integer">  
+            <column name="groupid"></column>  
+            <generator class="native"></generator>  
+        </id>  
+        
+        <property name="groupname" type="java.lang.String">  
+            <column name="groupname"></column>  
+        </property>
+        
+        <property name="membernumber" type="java.lang.String">  
+            <column name="membernumber"></column>  
+        </property>
+        
+        <set name="user">
+			<key column="oid"></key>
+			<one-to-many class="com.meet.entity.User"/>
+		</set>
+    </class>
+	
+</hibernate-mapping>

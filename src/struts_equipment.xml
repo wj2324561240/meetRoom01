@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"> 
+<struts>
+	<package name="equipment" extends="struts-default">
+		<action name="equipment_*" class="com.meet.action.EquipmentAction" method="{1}">
+			<result name="addEquipment" type="redirect">/equipment_findAllEquipment.action</result>
+			<result name="findAllEquipment" type="redirect">/equipmentList.jsp</result>
+			<result name="deleteEquipment" type="redirect">/equipment_findAllEquipment.action</result>
+			<result name="findByIdEquipment">/equipment.jsp</result>
+			<result name="updateEquipment" type="redirect">/equipment_findAllEquipment.action</result>
+		</action>
+	</package>
+</struts>

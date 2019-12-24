@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="meetAction" class="com.meet.action.MeetAction">
+		<property name="meetService">
+			<ref bean="meetService"/>
+		</property>
+	</bean>
+	<bean id="meetService" class="com.meet.service.impl.MeetServiceImpl">
+		<property name="meetDao">
+			<ref bean="meetDao"/>
+		</property>
+	</bean>
+	<bean id="meetDao" class="com.meet.dao.impl.MeetDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="equipmentAction" class="com.meet.action.EquipmentAction">
+		<property name="equipmentService">
+			<ref bean="equipmentService"/>
+		</property>
+	</bean>
+	<bean id="equipmentService" class="com.meet.service.impl.EquipmentServiceImpl">
+		<property name="equipmentDao">
+			<ref bean="equipmentDao"/>
+		</property>
+	</bean>
+	<bean id="equipmentDao" class="com.meet.dao.impl.EquipmentDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="groupAction" class="com.meet.action.GroupAction">
+		<property name="groupService">
+			<ref bean="groupService"/>
+		</property>
+	</bean>
+	<bean id="groupService" class="com.meet.service.impl.GroupServiceImpl">
+		<property name="groupDao">
+			<ref bean="groupDao"/>
+		</property>
+	</bean>
+	<bean id="groupDao" class="com.meet.dao.impl.GroupDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="roomAction" class="com.meet.action.BoardroomAction">
+		<property name="roomService">
+			<ref bean="roomService"/>
+		</property>
+	</bean>
+	<bean id="roomService" class="com.meet.service.impl.BoardroomServiceImpl">
+		<property name="roomDao">
+			<ref bean="roomDao"/>
+		</property>
+	</bean>
+	<bean id="roomDao" class="com.meet.dao.impl.BoardroomDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="userAction" class="com.meet.action.UserAction">
+		<property name="userService">
+			<ref bean="userService"/>
+		</property>
+	</bean>
+	<bean id="userService" class="com.meet.service.impl.UserServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao"/>
+		</property>
+	</bean>
+	<bean id="userDao" class="com.meet.dao.impl.UserDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/meet/entity/User.hbm.xml</value>
+				<value>com/meet/entity/Boardroom.hbm.xml</value>
+				<value>com/meet/entity/Group.hbm.xml</value>
+				<value>com/meet/entity/Equipment.hbm.xml</value>
+				<value>com/meet/entity/Meet.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost:3306/meetroom?characterEncoding=UTF-8"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="Val01231024"></property>
+	</bean>
+	
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+
+</beans>

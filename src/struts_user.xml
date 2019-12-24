@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"> 
+<struts>
+	<package name="user" extends="struts-default,json-default">
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="addUser" type="redirect">/user_findAllUser.action</result>
+			<result name="findAllUser" type="redirect">/userList.jsp</result>
+			<result name="deleteUser" type="redirect">/user_findAllUser.action</result>
+			<result name="findByIdUser" >/user.jsp</result>
+			<result name="updateUser" type="redirect">/user_findAllUser.action</result>
+			<result name="login" type="redirect">/login.jsp</result>
+			<result name="main" type="redirect">/main.jsp</result>
+			<result name="findByTJ" type="redirect">/userList.jsp</result>
+			<result name="success">/userList.jsp</result>
+		</action>
+	</package>
+</struts>

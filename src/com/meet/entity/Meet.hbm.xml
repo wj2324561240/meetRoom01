@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.meet.entity.Meet" table="meet" catalog="meetroom" lazy="false"> 
+		<id name="meetid" type="java.lang.Integer">  
+            <column name="meetid"></column>  
+            <generator class="native"></generator>  
+        </id>  
+        
+        <property name="meetname" type="java.lang.String">  
+            <column name="meetname"></column>  
+        </property>
+        
+        <property name="starttime" type="java.lang.String">  
+            <column name="starttime"></column>  
+        </property>
+        
+         <property name="endtime" type="java.lang.String">  
+            <column name="endtime"></column>  
+        </property>
+        
+        <many-to-one name="user" column="oid"></many-to-one>
+        
+        <many-to-one name="room" column="boardroomid"></many-to-one>
+        
+        <many-to-one name="equipment" column="equipmentid"></many-to-one>
+        
+	</class>
+
+</hibernate-mapping>

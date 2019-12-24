@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.meet.entity.Boardroom" table="boardroom" catalog="meetroom" lazy="false"> 
+		<id name="boardroomid" type="java.lang.Integer">  
+            <column name="boardroomid"></column>  
+            <generator class="native"></generator>  
+        </id>   
+		
+		<property name="boardroomtype" type="java.lang.String">  
+            <column name="boardroomtype"></column>  
+        </property>        
+        
+        
+        <property name="boardroomconten" type="java.lang.Integer">  
+            <column name="boardroomconten"></column>  
+        </property>
+        
+        <property name="state" type="java.lang.Integer">  
+            <column name="state"></column>  
+        </property>
+        
+        <set name="meet">
+			<key column="meetid"></key>
+			<one-to-many class="com.meet.entity.Meet"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>

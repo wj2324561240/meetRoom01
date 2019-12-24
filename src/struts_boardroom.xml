@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"> 
+<struts>
+	<package name="room" extends="struts-default">
+		<action name="room_*" class="roomAction" method="{1}">
+			<result name="addRoom" type="redirect">/room_findAllBoardroom.action</result>
+			<result name="findAllBoardroom" type="redirect">/roomList.jsp</result>
+			<result name="deleteRoom" type="redirect">/room_findAllBoardroom.action</result>
+			<result name="findByIdRoom" >/room.jsp</result>
+			<result name="updateRoom" type="redirect">/room_findAllBoardroom.action</result>
+			<result name="findkxBoardroom" type="redirect">/roomList.jsp</result>
+			<result name="findByTJ" type="redirect">/roomList.jsp</result>
+		</action>
+	</package>
+</struts>
